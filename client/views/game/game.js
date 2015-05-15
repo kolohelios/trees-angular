@@ -2,10 +2,12 @@
 
 angular.module('trees')
 .controller('GameCtrl', function($rootScope, $scope, Life, Tree){
-  
+  $scope.$on('plague', function(event, data){
+    
+  });
+
   Life.find()
   .then(function(lifeResponse){
-    console.log(lifeResponse);
     $rootScope.lives = lifeResponse.data.lives;
 
     Tree.find()
