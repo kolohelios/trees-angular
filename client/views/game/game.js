@@ -2,6 +2,7 @@
 
 angular.module('trees')
 .controller('GameCtrl', function($rootScope, $scope, Life, Tree){
+  
   Life.find()
   .then(function(lifeResponse){
     console.log(lifeResponse);

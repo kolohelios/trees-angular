@@ -1,5 +1,6 @@
-.jd-tree.col-xs-1
+.jd-tree.col-xs-1(ng-class="{'tree-dead': dead}" ng-show='alive')
   div height: {{height}}
-  div health: {{health}}
+  div.progress
+    div.progress-bar(ng-class='{"progress-bar-success": health > 30, "progress-bar-danger": health <= 29}' ng-style='{"width": health + "%"}')
   div name: {{state.name}}
-  img(ng-src='{{state.url}}', ng-click='grow()')
+  img(ng-src='{{state.url}}', ng-click='dead || grow()')

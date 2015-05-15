@@ -18,12 +18,21 @@ angular.module('jdTreeModule', [])
       });
     }
     getState();
+    $scope.alive = true;
     $scope.grow = function(){
       Tree.grow($scope.id)
       .then(function(response){
         $scope.height = response.data.height;
         $scope.health = response.data.health;
         getState();
+        if($scope.health < 0){
+          $scope.health = 'Dead';
+          $scope.dead = true;
+          setTimeout(function(){
+            console.log('working');
+            $scope.alive = false;
+          }, 2000);
+        }
       });
     };
   };
